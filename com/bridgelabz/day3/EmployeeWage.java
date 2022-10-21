@@ -12,6 +12,17 @@ public class EmployeeWage {
 			return false;
 	}
 	
+	public int calculateWage(int p)
+	{
+		int wage = 0;
+		if(isEmployeePresent(p))
+			wage = 20*8;
+		else
+			wage = 20*0;
+			
+		return wage;
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
@@ -23,6 +34,9 @@ public class EmployeeWage {
 			System.out.println("Employee is present!");
 		else
 			System.out.println("Employee is absent!");
+		
+		int wage = emp.calculateWage(p);
+		System.out.println("Employee wage is " + wage);
 		
 	}
 
