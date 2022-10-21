@@ -49,7 +49,9 @@ public class EmployeeWage {
 		
 		System.out.println("Welcome to employee wage computaion program!");
 		Random rnd = new Random();
-		int p = rnd.nextInt(3);
+		int dayCount = 0;
+		int hrs = 0;
+		int wage = 0;
 		EmployeeWage emp = new EmployeeWage();
 //		if(emp.isEmployeePresent(p))
 //			System.out.println("Employee is present!");
@@ -64,22 +66,33 @@ public class EmployeeWage {
 //		int wage = emp.calculateWage(p);
 //		System.out.println("Employee wage is " + wage);
 		
-		switch(p)
+		while(!(dayCount >= 20 || hrs >= 100))
 		{
-		case 0: System.out.println("Employee is absent");
-		  		System.out.println("Employee daily wage is " + emp.calculateWage(0));
-		  		System.out.println("Employee monthly wage is " + emp.calculateMonthlyWage(0));
-		  		break;
-		case 1: System.out.println("Employee is present full time");
-  				System.out.println("Employee daily wage is " + emp.calculateWage(1));
-  				System.out.println("Employee monthly wage is " + emp.calculateMonthlyWage(1));
-  				break;
-		case 2:System.out.println("Employee is present part time");
-  				System.out.println("Employee daily wage is " + emp.calculateWage(2));
-  				System.out.println("Employee monthly wage is " + emp.calculateMonthlyWage(2));
-  				break;
-  		default:break;
+			int p = rnd.nextInt(3);
+			dayCount++;
+			switch(p)
+			{
+			case 0: System.out.println("Employee is absent");
+			  		System.out.println("Employee daily wage is " + emp.calculateWage(0));
+			  		hrs += 0;
+			  		wage += 0; 
+			  		break;
+			case 1: System.out.println("Employee is present full time");
+	  				System.out.println("Employee daily wage is " + emp.calculateWage(1));
+	  				hrs += 8;
+	  				wage += 20*8;
+	  				break;
+			case 2:System.out.println("Employee is present part time");
+	  				System.out.println("Employee daily wage is " + emp.calculateWage(2));
+	  				hrs += 4;
+	  				wage += 20*4;
+	  				break;
+	  		default:break;
+			}
+			
 		}
+		
+		System.out.println("Total wage for "+ dayCount + " days and "+ hrs + " hours is "+wage);
 		
 	}
 
