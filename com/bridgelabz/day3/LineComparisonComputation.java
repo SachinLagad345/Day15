@@ -33,7 +33,8 @@ public class LineComparisonComputation {
 		int y4 = sc.nextInt();
 		Double l2 = new Double(Math.sqrt(Math.pow(x4-x3,2)+Math.pow(y4-y3,2)));
 		
-		if(l1.equals(l2))
+		
+		if(l1.compareTo(l2) == 0)
 			System.out.println("L1 and L2 are equal");
 		else
 			System.out.println("L1 and L2 are not equal");
