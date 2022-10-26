@@ -27,7 +27,10 @@ public class SnakeAndLadder {
 			}
 			else if(opt == 1)
 			{
-				sn.pos += n;
+				if((sn.pos+n) > 100 )
+					continue;
+				else
+					sn.pos += n;
 				System.out.println("Ladder!! New position is " + sn.pos);
 			}
 			else
