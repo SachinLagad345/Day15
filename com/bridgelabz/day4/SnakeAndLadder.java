@@ -5,6 +5,7 @@ import java.util.Random;
 public class SnakeAndLadder {
 
 	int pos = 0;
+	static int diecounter = 0; 
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -17,6 +18,7 @@ public class SnakeAndLadder {
 		while(sn.pos < 100)
 		{
 			int n = 1 + rn.nextInt(6);
+			diecounter++;
 			System.out.println("Player 1 has got " + n);
 			
 			int opt = rn.nextInt(3);
@@ -48,6 +50,8 @@ public class SnakeAndLadder {
 			}
 		
 		}
+		
+		System.out.println("Number of times die rolled for winning is " + diecounter);
 	}
 
 }
