@@ -2,9 +2,9 @@ package com.bridgelabz.day13;
 
 public class Max {
 
-	public static Integer findmax(Integer[] arr)
+	public static Float findmax(Float[] arr)
 	{
-		Integer maxnum = arr[0];
+		Float maxnum = arr[0];
 		
 		for(int i=1;i<arr.length;i++)
 		{
@@ -18,9 +18,9 @@ public class Max {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Integer arr1[] = {3,2,1};
-		Integer arr2[] = {3,12,6};
-		Integer arr3[] = {2,5,8};
+		Float arr1[] = {3.1F,2.4F,1.2F};
+		Float arr2[] = {3.2F,12.14F,6.4F};
+		Float arr3[] = {2.32F,5.2F,8.34F};
 		
 		System.out.println(Max.findmax(arr1));
 		System.out.println(Max.findmax(arr2));
