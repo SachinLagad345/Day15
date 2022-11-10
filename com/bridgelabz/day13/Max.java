@@ -2,9 +2,9 @@ package com.bridgelabz.day13;
 
 public class Max {
 
-	public static String findmax(String[] arr)
+	public static <E extends Comparable<E>> E findmax(E[] arr)
 	{
-		String maxnum = arr[0];
+		E maxnum = arr[0];
 		
 		for(int i=1;i<arr.length;i++)
 		{
@@ -23,8 +23,8 @@ public class Max {
 //		Float arr3[] = {2.32F,5.2F,8.34F};
 		
 		String arr1[] = {"Vasudev","Krishna","Ram"};
-		String arr2[] = {"Ganesh","Ram","Chaitanya"};
-		String arr3[] = {"Raja","Krishna","Trivikram"};
+		Integer arr2[] = {2,5,3};
+		Float arr3[] = {12F,24F,30.23F};
 		
 		System.out.println(Max.findmax(arr1));
 		System.out.println(Max.findmax(arr2));
