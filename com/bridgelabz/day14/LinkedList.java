@@ -4,14 +4,14 @@ class Node {
 	int data;
 	Node next;
 	
-	Node(int data)
-	{
+	Node(int data){
 		this.data = data;
 		this.next = null;
 	}
 }
 
 public class LinkedList {
+
 	Node head;
 	
 	public void addFirst(int data) 
@@ -50,6 +50,7 @@ public class LinkedList {
 		li.addFirst(70);
 		li.addFirst(30);
 		li.addFirst(56);
+	
 		li.display();
 	}
 
