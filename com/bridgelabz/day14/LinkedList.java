@@ -86,6 +86,23 @@ public class LinkedList {
 		head = head.next;
 	}
 	
+	public void deleteLast()
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty! nothing to remove!");
+		}
+		Node secondLast = head;
+		Node last = head.next;
+		
+		while(last.next != null)
+		{
+			secondLast = secondLast.next;
+			last = last.next;
+		}
+		secondLast.next = null;
+	}
+	
 	public void display()
 	{
 		if(head == null)
@@ -112,7 +129,9 @@ public class LinkedList {
 		li.display();
 		li.add(30, 1);
 		li.display();
-		li.deleteFirst();
+		//li.deleteFirst();
+		//li.display();
+		li.deleteLast();
 		li.display();
 	}
 
