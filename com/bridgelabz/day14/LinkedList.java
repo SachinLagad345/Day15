@@ -45,6 +45,37 @@ public class LinkedList {
 		tempnode.next = newnode;
 	}
 	
+	public void add(int data,int index)
+	{
+		int i = 1;
+		Node newnode = new Node(data);
+		Node prevnode = head;
+		Node tempnode = head.next;
+		
+		if(head == null) {
+			addFirst(data);
+			return;
+		}
+
+		while(tempnode != null)
+		{
+			if(i == index)
+			{
+				prevnode.next = newnode;
+				newnode.next = tempnode;
+				return;
+			}
+			else
+			{
+				i++;
+				prevnode = prevnode.next;
+				tempnode = tempnode.next;
+			}
+		}
+		
+		addLast(data);
+	}
+	
 	public void display()
 	{
 		if(head == null)
@@ -67,8 +98,9 @@ public class LinkedList {
 		LinkedList li = new LinkedList();
 
 		li.addLast(56);
-		li.addLast(30);
 		li.addLast(70);
+		li.display();
+		li.add(30, 1);
 		li.display();
 	}
 
