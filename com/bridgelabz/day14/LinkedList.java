@@ -27,6 +27,24 @@ public class LinkedList {
 		head = newnode;
 	}
 	
+	public void addLast(int data)
+	{
+		Node newnode = new Node(data);
+		Node tempnode = head;
+
+		if(head == null)
+		{
+			head = newnode;
+			return;
+		}
+		
+		while(tempnode.next != null)
+		{
+			tempnode = tempnode.next;
+		}
+		tempnode.next = newnode;
+	}
+	
 	public void display()
 	{
 		if(head == null)
@@ -47,10 +65,10 @@ public class LinkedList {
 		// TODO Auto-generated method stub
 		
 		LinkedList li = new LinkedList();
-		li.addFirst(70);
-		li.addFirst(30);
-		li.addFirst(56);
-	
+
+		li.addLast(56);
+		li.addLast(30);
+		li.addLast(70);
 		li.display();
 	}
 
