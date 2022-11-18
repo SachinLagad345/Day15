@@ -76,6 +76,16 @@ public class LinkedList {
 		addLast(data);
 	}
 	
+	public void deleteFirst()
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty! nothing to remove!");
+			return;
+		}
+		head = head.next;
+	}
+	
 	public void display()
 	{
 		if(head == null)
@@ -101,6 +111,8 @@ public class LinkedList {
 		li.addLast(70);
 		li.display();
 		li.add(30, 1);
+		li.display();
+		li.deleteFirst();
 		li.display();
 	}
 
