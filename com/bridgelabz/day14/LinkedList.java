@@ -103,26 +103,29 @@ public class LinkedList {
 		secondLast.next = null;
 	}
 	
-	public void search(int data)
+	public int search(int data)
 	{
 		if(head == null)
 		{
 			System.out.println("List is empty!");
-			return;
+			return 0;
 		}
 		Node tempnode = head;
-		
+		int i=1;
 		while(tempnode != null)
 		{
 			if(tempnode.data == data)
 			{
 				System.out.println(data + " present in linked list");
-				return;
+				return i;
 			}
-			else
+			else {
 				tempnode = tempnode.next;
+				i++;
+			}
 		}
 		System.out.println(data + " element is not present!");
+		return 0;
 	}
 	
 	public void display()
@@ -153,9 +156,11 @@ public class LinkedList {
 		li.display();
 		//li.deleteFirst();
 		//li.display();
-		li.deleteLast();
+		//li.deleteLast();
+		//li.display();
+		int ind = li.search(30);
+		li.add(40, ind);
 		li.display();
-		li.search(30);
 	}
 
 }
