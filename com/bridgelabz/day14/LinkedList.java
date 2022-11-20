@@ -103,6 +103,59 @@ public class LinkedList {
 		secondLast.next = null;
 	}
 	
+	public void delete(int data)
+	{
+		if(head == null)
+		{
+			System.out.println("List is empty! Nothing to delete!");
+			return;
+		}
+		
+		if(head.data == data)
+		{
+			deleteFirst();
+			return;
+		}
+	
+		Node prevnode = head;
+		Node currnode = head.next;
+		Node nextnode = currnode.next;
+		
+		while(nextnode != null)
+		{
+			if(currnode.data == data)
+			{
+				prevnode.next = nextnode;
+				return;
+			}
+			else
+			{
+				prevnode = prevnode.next;
+				currnode = currnode.next;
+				nextnode = nextnode.next;
+			}
+		}
+		
+		if(currnode.data == data)
+		{
+			prevnode.next = null;
+			return;
+		}
+		System.out.println(data + " does not exist in List!");
+	}
+	
+	public void size()
+	{
+		int l = 0;
+		Node tempnode = head;
+		while(tempnode != null)
+		{
+			l++;
+			tempnode = tempnode.next;
+		}
+		System.out.println("Size of list is " + l);
+	}
+	
 	public int search(int data)
 	{
 		if(head == null)
@@ -161,6 +214,9 @@ public class LinkedList {
 		int ind = li.search(30);
 		li.add(40, ind);
 		li.display();
+		li.delete(40);
+		li.display();
+		li.size();
 	}
 
 }
