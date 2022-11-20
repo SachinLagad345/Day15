@@ -3,7 +3,7 @@ package com.bridgelabz.day14;
 class Node<T extends Comparable<T>> {
 	T data;
 	Node next;
-	
+  
 	Node(T data)
 	{
 		this.data = data;
