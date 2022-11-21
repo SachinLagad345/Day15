@@ -1,20 +1,20 @@
 package com.bridgelabz.day14;
 
-class Node {
-	int data;
+class Node<T extends Comparable<T>> {
+	T data;
 	Node next;
-	
-	Node(int data){
+  
+	Node(T data)
+	{
 		this.data = data;
 		this.next = null;
 	}
 }
 
-public class LinkedList {
-
+public class LinkedList<T extends Comparable<T>> {
 	Node head;
 	
-	public void addFirst(int data) 
+	public void addFirst(T data) 
 	{
 		Node newnode = new Node(data);
 
@@ -27,7 +27,7 @@ public class LinkedList {
 		head = newnode;
 	}
 	
-	public void addLast(int data)
+	public void addLast(T data)
 	{
 		Node newnode = new Node(data);
 		Node tempnode = head;
@@ -45,7 +45,7 @@ public class LinkedList {
 		tempnode.next = newnode;
 	}
 	
-	public void add(int data,int index)
+	public void add(T data,int index)
 	{
 		int i = 1;
 		Node newnode = new Node(data);
@@ -103,7 +103,7 @@ public class LinkedList {
 		secondLast.next = null;
 	}
 	
-	public void delete(int data)
+	public void delete(T data)
 	{
 		if(head == null)
 		{
@@ -156,7 +156,7 @@ public class LinkedList {
 		System.out.println("Size of list is " + l);
 	}
 	
-	public int search(int data)
+	public int search(T data)
 	{
 		if(head == null)
 		{
@@ -200,7 +200,7 @@ public class LinkedList {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		LinkedList li = new LinkedList();
+		LinkedList<Integer> li = new LinkedList();
 
 		li.addLast(56);
 		li.addLast(70);
@@ -217,6 +217,63 @@ public class LinkedList {
 		li.delete(40);
 		li.display();
 		li.size();
+		
+		SortedLinkedList sl = new SortedLinkedList();
+		sl.add(56);
+		sl.add(30);
+		sl.add(40);
+		sl.add(70);
+		sl.display();
 	}
 
+}
+
+class SortedLinkedList<T extends Comparable<T>> extends LinkedList { 
+	
+	public void add(T data)
+	{
+		if(head == null)
+		{
+			addFirst(data);
+			return;
+		}
+		Node tempnode = new Node(data);
+		if(head.next == null)
+		{
+			if(head.data.compareTo(data) > 0)
+			{
+				tempnode.next = head;
+				head = tempnode;
+			}
+			else
+			{
+				head.next = tempnode;
+			}
+			return;
+		}
+		Node slnode = head;
+		Node currnode = head.next;
+		
+		while(currnode.next != null)
+		{
+			if(slnode.data.compareTo(data) > 0 && currnode.data.compareTo(data) < 0)
+			{
+				slnode.next = tempnode;
+				tempnode.next = currnode;
+				return;
+			}
+			else
+			{
+				slnode = slnode.next;
+				currnode = currnode.next;
+			}
+		}
+		if(currnode.data.compareTo(data) > 0)
+		{
+			slnode.next = tempnode;
+			tempnode.next = currnode;
+			return;
+		}
+		currnode.next = tempnode;
+	}
 }
