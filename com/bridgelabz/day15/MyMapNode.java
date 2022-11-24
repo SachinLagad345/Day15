@@ -68,6 +68,9 @@ public class MyMapNode<K,V> {
 		if(head == null)
 		{
 			bucketList.set(index, newnode);
+			size++;
+			if(size >= numBuckets)
+				expandList();
 			return;
 		}
 		
@@ -85,6 +88,18 @@ public class MyMapNode<K,V> {
 		
 		newnode.next = head;
 		bucketList.set(index, newnode);
+		size++;
+		if(size >= numBuckets)
+			expandList();
+	}
+	
+	public void expandList()
+	{
+		for(int i=0;i<10;i++)
+		{
+			bucketList.add(null);
+		}
+		this.numBuckets = 20;
 	}
 	
 	public void display()
@@ -109,7 +124,7 @@ public class MyMapNode<K,V> {
 		// TODO Auto-generated method stub
 		
 		MyMapNode<String, Integer> map = new MyMapNode();
-		String s = "To be or not to be";
+		String s = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
 		String arr[] = s.split("\\s");
 		
 		for(int i=0;i<arr.length;i++)
@@ -119,6 +134,7 @@ public class MyMapNode<K,V> {
 		
 		System.out.println("Frequency of words is as follows");
 		map.display();
+		System.out.println("size is " + map.size+ " no of buckets is "+ map.numBuckets);
 	}
 
 }
