@@ -88,6 +88,20 @@ public class BinaryTree<K extends Comparable<K>> {
 	{
 		System.out.println("size is " + this.sze);
 	}
+	
+	public int search(Integer data)
+	{
+		if(this.root == null)
+			return 0;
+		TreeNode temp = this.root;
+		while(temp != null)
+		{
+			if(temp.data == data)
+				return data;
+			temp = temp.data.compareTo(data) < 0 ? temp.right : temp.left;
+		}
+		return 0;
+	}
 
 	
 	public static void main(String[] args) {
@@ -109,6 +123,11 @@ public class BinaryTree<K extends Comparable<K>> {
 		bt.add(67);
 		bt.display();
 		bt.size();
+		int n = bt.search(63);
+		if(n == 0)
+			System.out.println("data not present in tree!");
+		else
+			System.out.println("data "+n+" present in tree!");
 	}
 
 }
